@@ -1,0 +1,3 @@
+[submodule "src/WebComponents"]
+	path = src/WebComponents
+	url = https://github.com/frixtaylor1/WebComponents
