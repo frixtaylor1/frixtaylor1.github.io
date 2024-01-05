@@ -20,10 +20,8 @@ class WCWeb extends HTMLElement {
   connectedCallback() {
     this.dispatchEvent(createEvent('wce-web-load-projects'));
 
-    this.loadProjects();
-    this.setupSections();
-
-
+    this.#loadProjects();
+    this.#render();
     this.scroll = this.scroll.bind(this);
 
     window.addEventListener('scroll', this.scroll);
@@ -34,7 +32,7 @@ class WCWeb extends HTMLElement {
     this.appendChild(style);
   }
 
-  loadProjects() {
+  #loadProjects() {
     this.#sections = this.#projectsData.sections.map(section => {
       let sectionContent = null;
       if (section.hasOwnProperty('linkedIn')) {
@@ -43,13 +41,14 @@ class WCWeb extends HTMLElement {
           createElement('br'),
           createElement('h3',   { class: 'section-description', textContent: section.description }),
           createElement('br'),
-          createElement('h3',   { class: 'section-degree'     , textContent: section.degree }),
-          /* createElement('img',  { class: 'section-image'      , src: section.image,  }), */
-          createElement('a',    { class: 'section-linkedin'   , textContent: 'Ver perfil en LinkedIn', href: section.linkedIn }),
+          createElement('img',  { class: 'section-profile-image'  , src: section.image,  }),
           createElement('br'),
-          createElement('a',    { class: 'section-github'     , textContent: 'Ver proyectos en github', href: section.github }),
+          createElement('h3',   { class: 'section-degree'         , textContent: section.degree }),
+          createElement('a',    { class: 'section-linkedin'       , textContent: 'Ver perfil en LinkedIn', href: section.linkedIn, target: '_blank' }),
           createElement('br'),
-          createElement('p',    { class: 'scroll-down'        , textContent: 'Scroll Down' }),
+          createElement('a',    { class: 'section-github'         , textContent: 'Ver proyectos en github', href: section.github,  target: '_blank' }),
+          createElement('br'),
+          createElement('p',    { class: 'scroll-down'            , textContent: 'Scroll Down' }),
         
         ]);
       } else {
@@ -58,9 +57,11 @@ class WCWeb extends HTMLElement {
           createElement('br'),
           createElement('p',  { class: 'section-description', textContent: section.description }),
           createElement('br'),
+          createElement('img', { class: 'section-description-image', src: section.image }),
+          createElement('br'),
           createElement('p',  { class: 'section-language'   , textContent: section.language }),
           createElement('br'),
-          createElement('a',  { class: 'section-github'     , textContent: 'Ver proyecto en github', href: section.github }),
+          createElement('a',  { class: 'section-github'     , textContent: 'Ver proyecto en github', href: section.github,  target: '_blank' }),
           createElement('br'),
         ]);
       }
@@ -68,17 +69,10 @@ class WCWeb extends HTMLElement {
       return sectionContent;
     });
 
-    this.#sections.forEach(section => this.appendChild(section));
   }
 
-  setupSections() {
-    for (let idx = 0; idx < this.#sections.length; idx++) {
-      this.#stateElement.addStateTransition(
-        this.#sections[idx],
-        this.#sections[((idx + 1) > this.#sections.length ? 0 : idx + 1)],
-        'wce-web-scroll'
-      );
-    }
+  #render() {
+    this.#sections.forEach(section => this.appendChild(section));
   }
 
   scroll() {
