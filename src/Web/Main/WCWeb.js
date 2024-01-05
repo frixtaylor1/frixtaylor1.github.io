@@ -35,7 +35,6 @@ class WCWeb extends HTMLElement {
   }
 
   loadProjects() {
-    console.log(this.#projectsData);
     this.#sections = this.#projectsData.sections.map(section => {
       let sectionContent = null;
       if (section.hasOwnProperty('linkedIn')) {
