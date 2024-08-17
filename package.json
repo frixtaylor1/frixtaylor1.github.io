@@ -1,0 +1,14 @@
+{
+  "name": "cv-resume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Kevin Daniel Taylor",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "http": "^0.0.1-security"
+  }
+}
