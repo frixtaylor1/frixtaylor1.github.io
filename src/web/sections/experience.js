@@ -5,7 +5,7 @@ import sectionComponent from "./section/section.js";
 export default function experienceSectionComponent() {
   const internalExp = function(positionName, companyName, rangeDates, innerHTML) {
     return (
-      div({ class: "internal-exp" },
+      div({ class: "internal-section" },
         h3({ innerText: positionName }),
         h4({ innerText: companyName }),
         h4({ innerText: rangeDates }),
@@ -14,21 +14,16 @@ export default function experienceSectionComponent() {
         )
       )
     );
-  }
+  };
 
-  const experiences = t("experience.list");
-
-  let internalExps = [];
   const experiencesComp = function() {
-     experiences.forEach(experience => {
-        internalExps.push(internalExp(experience.position, experience.company, experience.period, experience.description));
-      });
-      return [...internalExps];
-  }
+    const experiences = t("experience.list");
+    let internalExps = [];
+    experiences.forEach(experience => {
+      internalExps.push(internalExp(experience.position, experience.company, experience.period, experience.description));
+    });
+    return internalExps;
+  };
 
-  return (
-    sectionComponent("experience", t("experience.title"),    
-      experiencesComp()
-    )
-  );
+  return sectionComponent("experience", t("experience.title"), experiencesComp());
 }

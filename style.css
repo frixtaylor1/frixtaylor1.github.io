@@ -44,6 +44,31 @@ body {
     margin-bottom: 1em;
 }
 
+.frikada {
+    box-shadow: 0px 0px 5px #12a1a1;
+    background-color: rgba(50, 50, 50, 0.85);
+    border-radius: 4px;
+    border: 1px solid;
+    padding: .5em;
+    text-align: center;
+    color: #41FDFD;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: .5em;
+    width: 100%;
+}
+
+.frikada:hover {
+  background-color: rgba(32, 32, 32, 0.85);
+  box-shadow: 0px 0px 5px #e304e3;
+  background-color: rgba(50, 50, 50, 0.85);
+  border-radius: 4px;
+  padding: .5em;
+  text-align: center;
+  color: #E304E3;
+  cursor: pointer;
+}  
+
 .section-component {
     display: flex;
     background-color: rgba(32, 32, 32, 0.85);
@@ -55,9 +80,14 @@ body {
     padding: 1em;
     margin: auto;
     margin-bottom: 1em;
+    
+    h2 {
+       text-shadow: 2px 2px #828282;
+       color: bisque;   
+    }
 }
 
-.internal-exp {
+.internal-section {
     width: calc(100% - 2em);
     padding: 1em;
     border-radius: 4px;
@@ -71,18 +101,18 @@ body {
     padding-top: 0;
 }
 
-.frikada {
-    box-shadow: 0px 0px 5px #12a1a1;
-    background-color: rgba(50, 50, 50, 0.85);
-    border-radius: 4px;
-    padding: .5em;
-    text-align: center;
-    color: #00FFFF;
-    cursor: pointer;
+.internal-edu {
+    width: calc(100% - 2em);
+    padding: 1em;
+    boder-radius: 4px;
+    border: #B3B3B3 solid;
+    boder-width: 0.01em;
+    margin-bottom: 0.5em;
 }
 
-.frikada:hover {
-    background-color: rgba(32, 32, 32, 0.85);
+.internal-edu-parr {
+    padding: 1em;
+    padding-top: 0;
 }
 
 @media only screen and (max-width: 770px) {
@@ -91,6 +121,7 @@ body {
     }
 
     .frikada {
+        width: 100%;
         margin-top: 0.5em;
     }
 }

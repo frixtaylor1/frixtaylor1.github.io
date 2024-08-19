@@ -94,6 +94,29 @@ function _setDataset(element, dataset = {}) {
     element.dataset[datasetKey] = JSON.stringify(value);
   }
 }
+/**
+ * Examlpe of use:
+ * - Define the state...
+ *   const state = reactiveState({count: 0}, (key, value) => {
+ *     document.getElementById('count-display').innerText = value;
+ *   });
+ * - Use the state...
+ * p({ id: 'count-display', innerText: state.count })
+ * 
+ * @param {Object} initialState
+ * @param {CallableFunction} onChange
+ *
+ * @returns state
+ */
+export function reactiveState(initialState, onChange) {
+  return new Proxy(initialState, {
+    set(target, key, value) {
+      target[key] = value;
+      onChange(key, value);
+      return true;
+    }
+  });
+}
 function proxyCreateElement(tagElement, paramsOrChild, ...children) {
   if (typeof paramsOrChild !== 'object' || Array.isArray(paramsOrChild) || paramsOrChild instanceof HTMLElement || paramsOrChild instanceof TagElement) {
     return createElement(tagElement, {}, paramsOrChild, ...children);
@@ -134,4 +157,43 @@ export function h4(params, ...children) {
 }
 export function h5(params, ...children) {
   return WE('h5', params, ...children);
+}
+export function ul(params, ...children) {
+  return WE('ul', params, ...children);
+}
+export function ol(params, ...children) {
+  return WE('ol', params, ...children);
+}
+export function li(params, ...children) {
+  return WE('li', params, ...children);
+}
+export function dl(params, ...children) {
+  return WE('dl', params, ...children);
+}
+export function dt(params, ...children) {
+  return WE('dt', params, ...children);
+}
+export function dd(params, ...children) {
+  return WE('dd', params, ...children);
+}
+export function table(params, ...children) {
+  return WE('table', params, ...children);
+}
+export function tr(params, ...children) {
+  return WE('tr', params, ...children);
+}
+export function th(params, ...children) {
+  return WE('th', params, ...children);
+}
+export function td(params, ...children) {
+  return WE('td', params, ...children);
+}
+export function fieldset(params, ...children) {
+  return WE('fieldset', params, ...children);
+}
+export function legend(params, ...children) {
+  return WE('legend', params, ...children);
+}
+export function label(params, ...children) {
+  return WE('label', params, ...children);
 }

@@ -1,10 +1,10 @@
 const CONTENT = {
   "ES": {
     "menubar": {
-      "button1": "👨‍🎓 Mi Educación",
-      "button2": "🗄️ Experiencia",
+      "button1": "🗄️ Experiencia",
+      "button2": "👨‍🎓 Mi Educación",
       "button3": "📚 Proyectos",
-      "button4": "💻 IT Blog" 
+      "button4": "💻 IT Blog"
     },
     "aboutme": {
       "title": "Acerca/de/mi#~",
@@ -27,6 +27,23 @@ const CONTENT = {
         }
       ]
     },
+    "education": {
+      "title": "Educación",
+      "list": [
+        {
+          "institution": "ISFT N° 151",
+          "titleName": "Analista de Sistemas",
+          "period": "2019 - 2023",
+          "description": "Formación profunda en procesos de Soft. Eng. Además, formación en Teoría General de la Administración, como en Teoría General de Sistemas. La formación estuvo orientada para tener amplios conocimientos en todo el proceso de desarrollo de software industrial.<br> En la misma se vieron diferentes lenguajes de programación con énfasis en C/C++ y JavaScript.<br> También una sólida formación en la Ing. de Requerimientos."
+        },
+        {
+          "institution": "ESS N° 46",
+          "titleName": "Bachiller en Ciencias de la Comunicación",
+          "period": "2011 - 2017",
+          "description": "Formación en Investigación y Análisis de Medios; Comunicación Institucional y Medios, etc."
+        }
+      ]
+    }
   },
   "EN": {
 
@@ -48,7 +65,7 @@ function translate(obj) {
     if (key in result) {
       result = result[key];
     } else {
-      return undefined;    
+      return undefined;
     }
   }
 

@@ -6,13 +6,13 @@ import experienceSectionComponent from "../sections/experience.js";
 import educationSectionComponent from "../sections/education.js";
 
 export default function homeComponent() {
-    return ( 
-        div({style: 'width: 100%;'},
-            bannerComponent(),
-            aboutMeComponent(),
-            menuBarComponent(),
-            experienceSectionComponent(),
-            educationSectionComponent()
-        )
-    );
+  return (
+    div({ style: 'width: 100%;' },
+      bannerComponent(),
+      aboutMeComponent(),
+      menuBarComponent(),
+      experienceSectionComponent(),
+      educationSectionComponent()
+    )
+  );
 }
