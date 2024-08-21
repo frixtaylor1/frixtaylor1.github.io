@@ -121,7 +121,7 @@ body {
     }
 
     .frikada {
-        width: 100%;
+        width: calc(100% - 1em);
         margin-top: 0.5em;
     }
 }

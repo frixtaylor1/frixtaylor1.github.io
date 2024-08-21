@@ -1,3 +1,4 @@
+
 const CONTENT = {
   "ES": {
     "menubar": {
@@ -46,7 +47,50 @@ const CONTENT = {
     }
   },
   "EN": {
-
+    "menubar": {
+      "button1": "🗄️ Experience",
+      "button2": "👨‍🎓 My Education",
+      "button3": "📚 Projects",
+      "button4": "💻 IT Blog"
+    },
+    "aboutme": {
+      "title": "About Me",
+      "description": "My name is Kevin Daniel Taylor, and I am a Full Stack Developer with experience in web application development. I am passionate about learning new technologies and applying my knowledge to help others achieve their goals. In 2023, I graduated as a Systems Analyst from ISFT N° 151, and I am committed to staying current in my field.<br> I am a professional committed to quality and excellence in everything I do. I enjoy working in teams and have effective communication and collaboration skills."
+    },
+    "experience": {
+      "title": "Experience",
+      "list": [
+        {
+          "position": "Software Developer",
+          "period": "2023 - Present",
+          "company": "EnvioPack",
+          "description": "<li>I currently work as a Fullstack Developer at Envíopack, contributing to the internationalization of a Symfony-based platform, with a greater focus on Vanilla PHP due to issues with the framework version; I use MySQL for database management, Redis for caching, and Nginx as the web server.</li> <li>I am the lead developer for major backend tasks and responsible for deploying Jira tasks on the QA server hosted on AWS EC2 instances, a process that is currently done manually. Additionally, I am involved in developing a continuous integration solution for automated testing.</li> <li>I participate in the transition from Angular.js to React, integrating APIs for international postal services (FedEx, Almex, for example), internationalizing the platform, and implementing new features requested by Product and Support teams.</li>"
+        },
+        {
+          "position": "C++ Developer",
+          "period": "2021 - 2022",
+          "company": "EcoDev",
+          "description": "<li>Developed APIs for third parties in C/C++ up to version 14.</li> <li>Participated in the entire software development process with the waterfall methodology, being able to take part in requirements gathering, design, and implementation of the requested requirements.</li> <li>Developed an internal API to automate processes related to internal management of the organization, using httplib single header file and built with CMake.</li> <li>The project required in-depth OS knowledge such as IPC (Inter-Process Communication), Threads, Input/Output, Concurrency, etc.</li>"
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "list": [
+        {
+          "institution": "ISFT N° 151",
+          "titleName": "Systems Analyst",
+          "period": "2019 - 2023",
+          "description": "In-depth training in Software Engineering processes. Additionally, training in General Theory of Administration and General Theory of Systems. The training was aimed at having comprehensive knowledge of the entire industrial software development process.<br> Different programming languages were studied with an emphasis on C/C++ and JavaScript.<br> Also, solid training in Requirements Engineering."
+        },
+        {
+          "institution": "ESS N° 46",
+          "titleName": "High School Diploma in Communication Sciences",
+          "period": "2011 - 2017",
+          "description": "Training in Media Research and Analysis; Institutional Communication and Media, etc."
+        }
+      ]
+    }
   }
 };
 

@@ -22,7 +22,6 @@ export class CustomEventListener {
 export function createElement(tagName, params = {}, ...children) {
   const { innerText, textContent, innerHTML, href, state, customEvent, dataset, ...attributes } = params;
   const element = document.createElement(tagName);
-
   _setState(element, state);
   _setTextContent(element, textContent, innerText, innerHTML);
   _setHref(element, href);
@@ -31,7 +30,6 @@ export function createElement(tagName, params = {}, ...children) {
   _setAttributes(element, attributes);
   _setDataset(element, dataset);
   _setEvent(element, attributes);
-
   return element;
 }
 function _setState(element, newState) {
@@ -94,29 +92,35 @@ function _setDataset(element, dataset = {}) {
     element.dataset[datasetKey] = JSON.stringify(value);
   }
 }
+
 /**
- * Examlpe of use:
- * - Define the state...
- *   const state = reactiveState({count: 0}, (key, value) => {
- *     document.getElementById('count-display').innerText = value;
- *   });
- * - Use the state...
+ * Use examle:
+ * - this function define the state...
+ *   const state = reactiveState({count: 0}, ['count-display']);
+ * - use the state...
  * p({ id: 'count-display', innerText: state.count })
  * 
  * @param {Object} initialState
- * @param {CallableFunction} onChange
+ * @param {Array} idsElementBinding - binds the state with the elements
  *
  * @returns state
  */
-export function reactiveState(initialState, onChange) {
+export function reactiveState(initialState, idsElementBinding = []) {
   return new Proxy(initialState, {
     set(target, key, value) {
       target[key] = value;
-      onChange(key, value);
+
+      idsElementBinding.forEach(idElement => {
+        const element = document.getElementById(idElement);
+        if (element) {
+          element.innerHTML = value;
+        }
+      });
+
       return true;
     }
   });
-}
+} 
 function proxyCreateElement(tagElement, paramsOrChild, ...children) {
   if (typeof paramsOrChild !== 'object' || Array.isArray(paramsOrChild) || paramsOrChild instanceof HTMLElement || paramsOrChild instanceof TagElement) {
     return createElement(tagElement, {}, paramsOrChild, ...children);
@@ -196,4 +200,10 @@ export function legend(params, ...children) {
 }
 export function label(params, ...children) {
   return WE('label', params, ...children);
+}
+export function form(params, ...children) {
+  return WE('form', params, ...children);
+}
+export function input(params, ...children) {
+  return WE('input', params, ...children);
 }
