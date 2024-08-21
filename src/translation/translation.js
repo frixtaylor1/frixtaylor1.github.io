@@ -5,7 +5,8 @@ const CONTENT = {
       "button1": "🗄️ Experiencia",
       "button2": "👨‍🎓 Mi Educación",
       "button3": "📚 Proyectos",
-      "button4": "💻 IT Blog"
+      "button4": "💻 IT Blog",
+      "tooltip": "Sección actualmente en desarrollo."
     },
     "aboutme": {
       "title": "Acerca/de/mi#~",
@@ -51,7 +52,8 @@ const CONTENT = {
       "button1": "🗄️ Experience",
       "button2": "👨‍🎓 My Education",
       "button3": "📚 Projects",
-      "button4": "💻 IT Blog"
+      "button4": "💻 IT Blog",
+      "tooltip": "Section currently in development."
     },
     "aboutme": {
       "title": "About Me",
