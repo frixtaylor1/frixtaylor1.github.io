@@ -1,4 +1,4 @@
-import { div, reactiveState, button } from "../../DomUtility/DomUtility.js";
+import { div, reactiveState, createEvent, button } from "../../DomUtility/DomUtility.js";
 import { getLang } from "../../translation/translation.js";
 import bannerComponent from "../sections/banner.js";
 import aboutMeComponent from "../sections/aboutMe.js";
@@ -17,7 +17,7 @@ export default function homeComponent() {
             case 'ES': langState.lang = 'EN'; break;
             case 'EN': langState.lang = 'ES'; break;
           }
-          document.body.dispatchEvent(new Event('x-ce-change-lang'));
+          createEvent('x-ce-change-lang', { message: "Hello, World!" });
         }
       })
     );

@@ -9,8 +9,8 @@ export default function menuBarComponent() {
     div({ class: "frikadas" },
       menuBarLinkComponent(buttonsText.button1, HOME_ROUTE_EXPERIENCE),
       menuBarLinkComponent(buttonsText.button2, HOME_ROUTE_EDUCATION),
-      menuBarLinkComponent(buttonsText.button3, PROJECTS_ROUTE),
-      menuBarLinkComponent(buttonsText.button4, IT_BLOG_ROUTE)
+      menuBarLinkComponent(buttonsText.button3, PROJECTS_ROUTE, true),
+      menuBarLinkComponent(buttonsText.button4, IT_BLOG_ROUTE, true)
     )
   );
 }

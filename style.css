@@ -46,7 +46,7 @@ body {
 
 .frikada {
     box-shadow: 0px 0px 5px #12a1a1;
-    background-color: rgba(50, 50, 50, 0.85);
+    background-color: rgba(32, 32, 32, 0.85);
     border-radius: 4px;
     border: 1px solid;
     padding: .5em;
@@ -61,13 +61,24 @@ body {
 .frikada:hover {
   background-color: rgba(32, 32, 32, 0.85);
   box-shadow: 0px 0px 5px #e304e3;
-  background-color: rgba(50, 50, 50, 0.85);
   border-radius: 4px;
   padding: .5em;
   text-align: center;
   color: #E304E3;
   cursor: pointer;
 }  
+
+*:disabled {
+  background-color: rgba(100, 100, 100, 0.3);
+  box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.3);
+  color: #41FDFD66;
+}
+
+*:disabled:hover {
+  background-color: rgba(100, 100, 100, 0.3);
+  box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.3);
+  color: #41FDFD66;
+}
 
 .section-component {
     display: flex;

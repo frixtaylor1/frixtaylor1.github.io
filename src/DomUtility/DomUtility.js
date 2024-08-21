@@ -1,4 +1,5 @@
 export class TagElement extends HTMLElement {
+
   state = {};
   constructor(tagName) {
     super();
@@ -20,7 +21,7 @@ export class CustomEventListener {
   callback;
 }
 export function createElement(tagName, params = {}, ...children) {
-  const { innerText, textContent, innerHTML, href, state, customEvent, dataset, ...attributes } = params;
+  const { innerText, textContent, innerHTML, href, state, customEvent, dataset, disabled, ...attributes } = params;
   const element = document.createElement(tagName);
   _setState(element, state);
   _setTextContent(element, textContent, innerText, innerHTML);
@@ -29,7 +30,8 @@ export function createElement(tagName, params = {}, ...children) {
   _appendChilds(element, children);
   _setAttributes(element, attributes);
   _setDataset(element, dataset);
-  _setEvent(element, attributes);
+  _setDisabled(element, disabled);
+  _setEvent(element, attributes);  
   return element;
 }
 function _setState(element, newState) {
@@ -92,7 +94,11 @@ function _setDataset(element, dataset = {}) {
     element.dataset[datasetKey] = JSON.stringify(value);
   }
 }
-
+function _setDisabled(element, disabled = null) {
+  if (disabled) {
+    element.disabled = disabled;
+  }
+}
 /**
  * Use examle:
  * - this function define the state...
@@ -121,6 +127,13 @@ export function reactiveState(initialState, idsElementBinding = []) {
     }
   });
 } 
+export function createEvent(eventName, detail, node) {
+  if (node) {
+    return node.dispatchEvent(new CustomEvent(eventName, { detail: detail }));
+  } 
+
+  return document.body.dispatchEvent(new CustomEvent(eventName, { detail: detail }));
+}
 function proxyCreateElement(tagElement, paramsOrChild, ...children) {
   if (typeof paramsOrChild !== 'object' || Array.isArray(paramsOrChild) || paramsOrChild instanceof HTMLElement || paramsOrChild instanceof TagElement) {
     return createElement(tagElement, {}, paramsOrChild, ...children);
