@@ -7,7 +7,7 @@ export default function educationSectionComponent() {
     return (
       div({ class: "internal-section" },
         h3({ innerText: institution }),
-        h3({ titleName: titleName }),
+        h3({ innerText: titleName }),
         h4({ innerText: rangeDates }),
         div({ class: "internal-edu-parr" },
           p({ innerHTML: description })
@@ -21,7 +21,7 @@ export default function educationSectionComponent() {
     let internalEdus = [];
 
     educationList.forEach(education => {
-      internalEdus.push(internalEducation(education.institution, education.titleName, education.period, education.description));
+      internalEdus.push(internalEducation(education.institution, education.title, education.period, education.description));
     });
     return [...internalEdus];
   };

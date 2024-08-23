@@ -1,5 +1,4 @@
 export class TagElement extends HTMLElement {
-
   state = {};
   constructor(tagName) {
     super();
@@ -219,4 +218,7 @@ export function form(params, ...children) {
 }
 export function input(params, ...children) {
   return WE('input', params, ...children);
+}
+export function img(params, ...children) {
+  return WE('img', params, ...children);
 }
